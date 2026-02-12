@@ -33,18 +33,19 @@ def main():
     results = []
 
     for index, row in df.iterrows():
-        if 'Prompt_Question' not in row:
-            print("ERROR: The column 'Prompt_Question' does not exist in the CSV!")
+        if 'Prompt' not in row:
+            print("ERROR: The column 'Prompt' does not exist in the CSV!")
             break
 
-        prompt = row['Prompt_Question']
+        prompt = row['Prompt']
         response = query_ai(prompt)
 
         results.append({
             "ID": row.get('ID', index),
-            "Type": row.get('Type_Attaque', 'Unknown'),
-            "Question": prompt,
-            "Reponse_IA": response
+            "Attack_Type": row.get('Attack_Type', 'Unknown'),
+            "Prompt": prompt,
+            "Expected_Result": row.get('Expected_Result', 'None'),
+            "AI_Response": response
         })
 
         time.sleep(1)
