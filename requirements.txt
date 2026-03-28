@@ -1,0 +1,7 @@
+openai
+transformers
+huggingface_hub
+pandas
+python-dotenv
+openpyxl
+torch
